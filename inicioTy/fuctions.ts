@@ -23,3 +23,29 @@ function logErro(errorMesssage : string) : never
     console.log(errorMesssage);
     throw new Error(errorMesssage);
 }
+
+//* Assim se declara um função que retorna uma função, (nome : (variaveis) => tipo do retorno)
+function perfomace(cd : (m : string) => void)
+{
+    cd("Trabalho feito");
+}
+perfomace(log);
+
+//* Voce pode criar funcoes dentro da type
+type User = {
+    nome: string;
+    idade : number;
+    funcao : () => string;
+}
+
+let usuario : User = {
+    nome: "Leo",
+    idade: 24,
+    funcao() {
+        console.log("Boomm diaa");
+        return this.nome;
+    }
+}
+
+//* Voce pode retornar a funcao uma type
+usuario.funcao();
