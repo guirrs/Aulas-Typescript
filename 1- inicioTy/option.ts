@@ -14,4 +14,4 @@ type user ={
 let input = "";
 //* || verifica se o valor eh nulo, indefinido, zero ou string vazia
 //* Melhor que usa ?? pois caso seja zero ou string vazia, vai retornar input envez de false
-const valor = input || false;
+const valorOption = input || false;

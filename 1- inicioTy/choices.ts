@@ -23,7 +23,7 @@ possiveisResultados = [1, 28];
 //* Type voce cria uma variavel personalizada que sempre tera os valores impostos
 type RegrasType = 'admin' | 'editor' | 'cliente' | 'vendedor';
 
-type User = 
+type UserChoices = 
 {
     nome: string;
     idade: number;
