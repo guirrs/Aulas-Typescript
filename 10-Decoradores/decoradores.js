@@ -1,0 +1,43 @@
+"use strict";
+//* Existe 2 tipos de decoradores no typescript, o ECMAScript Decorators e o Experimental Decorators, o Experimental Decorators é o mais antigo que tem a idéia do estagio 2, enquanto o outro esta no estagio 3, que é mais atualizado e para maquinas mais recentes
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+//? ECMASCRIPT
+//* //* new(...args: any[]) => any define um tipo de construtor: uma função que, ao ser chamada com 'new', cria uma instância (objeto). Aqui, garante que T seja a classe (construtor), não uma instância, permitindo estendê-la no decorador. 
+function logger(target, ctx) {
+    console.log("logger decorator");
+    console.log(target);
+    console.log(ctx);
+    return class extends target {
+        constructor(...args) {
+            super(...args);
+            console.log('class constructor');
+            console.log(this);
+        }
+    };
+}
+//* No metodo, os decoradores tem que ser ClassMethodDecoratorContext
+function autobind(target, ctx) {
+    console.log(target);
+    console.log(ctx);
+}
+let Person = class Person {
+    constructor() {
+        this.name = "Guilherme";
+    }
+    greet() {
+        console.log("Oi meu nome é " + this.name);
+    }
+};
+__decorate([
+    autobind
+], Person.prototype, "greet", null);
+Person = __decorate([
+    logger
+], Person);
+const guinas = new Person();
+const cinthia = new Person();
