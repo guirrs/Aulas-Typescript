@@ -8,6 +8,12 @@ function add(a: any, b: any)
 
 console.log(add(2,3));
 
+function subtracao(a: any, b : any){
+    return a -b;
+}
+
+console.log(subtracao(2,3));
+
 //? tsc --watch, poe em modo de atualização constante, auxiliando quem coda com frequencia
 //? npm init cria um arquivo json que permite o uso do node e p uso de importações, nele adicione, type:"module"
 

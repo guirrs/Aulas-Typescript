@@ -3,7 +3,7 @@ enum Cargo{
     admin, //0
     editor, //1
     cliente, //2
-}
+} 
 
 //* Pode chama-la dessa forma
 let user1Cargo = Cargo.cliente;
